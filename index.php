@@ -1,4 +1,4 @@
-<?
+<?php
 
 define("DBHOST", "localhost");
 define("DBUSER", "root");
@@ -10,3 +10,10 @@ session_start();
 include('functions.php');
 connect();
 include('header.php');
+
+if(isset($_GET['p'])){
+  $pid = $_GET['p'];
+  $page = getPage($pid);
+  include('templates/' . $page[0]['template']);
+  debug($page);
+}
