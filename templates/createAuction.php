@@ -25,8 +25,6 @@ $user = $_SESSION['user_id'];
 $sql = "INSERT INTO products (cat_id, prod_title, description, min_price, end_time, created_by) VALUES ('$cat', '$title', '$description', '$price', '$end', '$user');";
 global $conn;
 $result = mysqli_query($conn, $sql);
-if(!$conn){
- die(mysqli_error($conn));}
 echo "Your auction has been published";
 } elseif(isset($_SESSION['submit'])){
   echo "Something went wrong, please try again";
