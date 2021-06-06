@@ -23,6 +23,6 @@ if(isset($_POST['submit']) && $_POST['password'] == $_POST['repeatPassword']){
   global $conn;
   $result = mysqli_query($conn, $sql);
   echo "user has been created";
-} else{
+} elseif(isset($_POST['submit'])){
   echo "something went wrong";
 }

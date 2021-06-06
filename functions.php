@@ -44,6 +44,19 @@ function getPage($i) {
   return $pages;
 }
 
+function getLogin(){
+  global $conn;
+  $sql = 'SELECT user_id, first_name, last_name, email, password FROM users where user_id > 0';
+  $result = mysqli_query($conn, $sql);
+  $users =[];
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+      $users[] = $row;
+    }
+  }
+return $users;
+}
+
 
 
 function debug($data) {
