@@ -14,6 +14,9 @@ if(isset($_POST['submit'])){
   foreach ($users as $user) {
     if($email == $user['email'] && $hashedPass == $user['password']){
       echo $user['email'];
+      $_SESSION['user_id'] = $user['user_id'];
+      $_SESSION['first_name'] = $user['first_name'];
+      $_SESSION['last_name'] = $user['last_name'];
     break;
   }
 }
