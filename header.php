@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Ikea auctions</title>
   </head>
   <body>
-
+<a href='index.php'>Back to menu</a> <br>
   <?php
 $nav = getNav();
     foreach ($nav as $singleNav) {
