@@ -1,9 +1,9 @@
 <form method="post">
-  <input type="text" name="firstName" required placeholder="Fornavn">
-  <input type="text" name="lastName" required placeholder="Efternavn">
+  <input type="text" name="firstName" required placeholder="Firstname">
+  <input type="text" name="lastName" required placeholder="Lastname">
   <input type="email" name="email" required placeholder="Email">
-  <input type="password" name="password" required placeholder="Adgangskode">
-  <input type="password" name="repeatPassword" required placeholder="Gentag adgangskode">
+  <input type="password" name="password" required placeholder="Password">
+  <input type="password" name="repeatPassword" required placeholder="Repeat password">
   <input type="text" name="address" required placeholder="address">
   <input type="postal" name="postal" required placeholder="postal">
   <input type="submit" name="submit">
