@@ -18,3 +18,4 @@ if(isset($_GET['a'])){
   $page = getPage($pid);
   include('templates/' . $page[0]['template']);
 }
+Echo ".gitignore test"
