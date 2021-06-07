@@ -1,12 +1,7 @@
 <?php
 
-define("DBHOST", "localhost");
-define("DBUSER", "root");
-define("DBPASS", "root");
-define("DBNAME", "ikea_auction");
-
 session_start();
-
+include('conn.php');
 include('functions.php');
 connect();
 include('header.php');
