@@ -72,7 +72,18 @@ function getCats() {
   return $cats;
 }
 
-
+function getAuctions(){
+  global $conn;
+  $sql = 'SELECT * FROM products where active = 1';
+  $result = mysqli_query($conn, $sql);
+  $auctions =[];
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+      $auctions[] = $row;
+    }
+  }
+return $auctions;
+}
 
 function debug($data) {
   echo '<pre>';
