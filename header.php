@@ -18,12 +18,13 @@
       $nav[] = $row;
     }
   }
-  debug($nav);
 
-  foreach ($nav as $singleNav){ ?>
-    <a href='?p=<?php echo $singleNav['page_id'] . $singleNav['page_name']; ?>'>
-    <?php echo $singleNav['page_name']; ?> </a><br>
-    <?
+  foreach($nav as $singleNav){
+    ?>
+    <a href="?p=<?php echo $singleNav["page_id"] . $singleNav["page_name"]; ?>">
+    <?php echo $singleNav["page_name"]; ?></a>
+    <br>
+    <?php
   }
 
 ?>
