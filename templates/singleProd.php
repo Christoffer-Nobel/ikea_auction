@@ -28,7 +28,8 @@ if(isset($_SESSION['user_id'])){
             global $conn;
             $result = mysqli_query($conn, $sql);
 
-
+            $sql = "UPDATE products SET min_price = $bid WHERE prod_id = $prodBidId;";
+            $result = mysqli_query($conn, $sql);
 
             echo "Your bid has been place";
 
