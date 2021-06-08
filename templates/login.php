@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
       $_SESSION['user_id'] = $user['user_id'];
       $_SESSION['first_name'] = $user['first_name'];
       $_SESSION['last_name'] = $user['last_name'];
-    break;
+    header('location: index.php');
   }
 }
 }
