@@ -98,6 +98,21 @@ function searchAuction($search){
 return $auctions;
 }
 
+function getProd($i) {
+  global $conn;
+
+  $sql = 'SELECT * FROM products WHERE prod_id = "'. $i . '"';
+  $result = mysqli_query($conn, $sql);
+  $product = [];
+
+  if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)){
+      $product[] = $row;
+    }
+  }
+  return $product;
+}
+
 
 function debug($data) {
   echo '<pre>';
