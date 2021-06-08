@@ -7,13 +7,24 @@
   <body>
 <a href='index.php'>Back to menu</a> <br>
   <?php
-$nav = getNav();
-    foreach ($nav as $singleNav) {
-    ?> <a href='?p=<?php echo $singleNav['page_id'] . $singleNav['page_name']; ?>'>
-    <?php echo $singleNav['page_name']; ?> </a>
-    <br>
-    <?
+  global $conn;
+
+  $sql = 'SELECT page_id, page_name FROM pages WHERE nav_display = 1';
+  $result = mysqli_query($conn, $sql);
+  $nav = [];
+
+  if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)){
+      $nav[] = $row;
     }
+  }
+  debug($nav);
+
+  foreach ($nav as $singleNav){ ?>
+    <a href='?p=<?php echo $singleNav['page_id'] . $singleNav['page_name']; ?>'>
+    <?php echo $singleNav['page_name']; ?> </a><br>
+    <?
+  }
 
 ?>
 <br><br><br>
