@@ -6,7 +6,8 @@
   </head>
   <body>
 <a href='index.php'>Back to menu</a> <br>
-  <?php
+<?php
+
 $nav = getNav();
   foreach($nav as $singleNav){
     if($singleNav['page_id'] == 7){
@@ -14,15 +15,12 @@ $nav = getNav();
         ?> <a href='?p=<?php echo $singleNav['page_id'] . $singleNav['page_name']; ?>'>
         <?php echo $singleNav['page_name']; ?> </a>
         <br>
-        <?php }
-      }else{
+      <?php }
+    }else{
     ?>
     <a href="?p=<?php echo $singleNav["page_id"] . $singleNav["page_name"]; ?>">
     <?php echo $singleNav["page_name"]; ?></a>
     <br>
-  <?php  } ?>
-    <?
-    }
-
-?>
+    <?php } ?>
+  <?php } ?>
 <br><br><br>

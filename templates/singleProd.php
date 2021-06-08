@@ -13,25 +13,26 @@ echo "Ends: " . $product[0]['end_time'] . "<br>";
   <input type="number" name="bid">
   <button type="submit" name="submit">Place</button>
 </form>
+
 <?php
 $time = date("20y-m-d H:m:s");
 if(isset($_SESSION['user_id'])){
-    $uid = $_SESSION['user_id'];
+  $uid = $_SESSION['user_id'];
   if(isset($_POST['submit'])){
-      $bid = $_POST['bid'];
+    $bid = $_POST['bid'];
     if($uid != $product[0]['created_by']){
       if($bid > $product[0]['min_price']){
         if($time < $product[0]['end_time']){
-            $prodBidId = $product[0]['prod_id'];
+          $prodBidId = $product[0]['prod_id'];
 
-            $sql = "INSERT INTO bids (prod_id, bidder_id, bid_ammount) VALUES ('$prodBidId', '$uid', '$bid');";
-            global $conn;
-            $result = mysqli_query($conn, $sql);
+          $sql = "INSERT INTO bids (prod_id, bidder_id, bid_ammount) VALUES ('$prodBidId', '$uid', '$bid');";
+          $result = mysqli_query($conn, $sql);
 
-            $sql = "UPDATE products SET min_price = $bid WHERE prod_id = $prodBidId;";
-            $result = mysqli_query($conn, $sql);
+          $sql = "UPDATE products SET min_price = $bid WHERE prod_id = $prodBidId;";
+          $result = mysqli_query($conn, $sql);
 
-            echo "Your bid has been place";
+          header("Refresh:2");
+          echo "Your bid has been place";
 
         }elseif(isset($_POST['submit'])){
             echo "Something went wrong. Auction may not be active";

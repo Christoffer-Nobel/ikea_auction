@@ -20,7 +20,6 @@ if(isset($_POST['submit']) && $_POST['password'] == $_POST['repeatPassword']){
   $postal = $_POST['postal'];
 
   $sql = "INSERT INTO users (first_name, last_name, email, password, address, postal) VALUES ('$fName', '$lName', '$email', '$hashedPass', '$address', '$postal');";
-  global $conn;
   $result = mysqli_query($conn, $sql);
   echo "user has been created";
 } elseif(isset($_POST['submit'])){
