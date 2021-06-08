@@ -11,7 +11,7 @@ echo "Ends: " . $product[0]['end_time'] . "<br>";
 ?> <h2>Enter bid<h2>
 <form method="post" name="newBid">
   <input type="number" name="bid">
-  <input type="submit" name="submit">
+  <button type="submit" name="submit">Place</button>
 </form>
 <?php
 $time = date("20y-m-d H:m:s");
