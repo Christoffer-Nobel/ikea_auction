@@ -3,12 +3,12 @@
      <option value="" selected data-default>Categories</option>
     <?php
     foreach (getCats() as $cat) {
-      if(getCatAmm($cat['cat_id'] != NULL)){
-        $amm = count(getCatAmm($cat['cat_id']));
-      } else{
-        $amm = NULL;
-      }
-     ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title'];?> ( <?php echo $amm;?> )</option>
+      $catAmm = getCatAmm($cat['cat_id']);
+      $i = 0;
+        foreach ($catAmm as $num) {
+          $i++;
+        }
+     ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title'];?> ( <?php echo $i;?> )</option>
     <?php } ?>
   </select>
   <button type="submit" name="catSubmit">Show products in category</button>
