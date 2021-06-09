@@ -60,3 +60,34 @@ foreach ($prods as $prod){
     echo "Highest bid is currently at: " . $prod['min_price'] . "<br><br>";
   }
 }
+echo "<h2>Your auction wins: </h2>";
+
+$sql = "SELECT * FROM creator_ended_bids WHERE user_id = '$uid';";
+$result = mysqli_query($conn, $sql);
+$prods =[];
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
+    $prods[] = $row;
+  }
+}
+foreach ($prods as $prod){
+  echo $prod['prod_title'] . "<br>";
+  echo "Final price: " . $prod['bid_ammount'] . "<br>";
+  echo "Seller contact info: " . $prod['email'] . "<br><br>";
+}
+
+echo "<h2>Your ended auctions: </h2>";
+
+$sql = "SELECT * FROM users_ended_bids WHERE created_by = '$uid';";
+$result = mysqli_query($conn, $sql);
+$prods =[];
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
+    $prods[] = $row;
+  }
+}
+foreach ($prods as $prod){
+  echo $prod['prod_title'] . "<br>";
+  echo "Final price: " . $prod['bid_ammount'] . "<br>";
+  echo "Buyer contact info: " . $prod['email'] . "<br><br>";
+}
