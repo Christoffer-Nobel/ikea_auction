@@ -36,3 +36,27 @@ foreach ($bids as $bid) {
       }
     }
 }
+echo "<h2>Your active auctions:</h2>";
+
+$sql = "SELECT * FROM products WHERE created_by = '$uid' AND active = 1;";
+$result = mysqli_query($conn, $sql);
+$prods =[];
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
+    $prods[] = $row;
+    }
+  }
+foreach ($prods as $prod){
+  $time = date("20y-m-d H:m:s");
+  $id = $prod['prod_id'];
+  if($time > $prod['end_time']){
+    $sql = "UPDATE products SET  active = 0 WHERE prod_id = $id;";
+    $result = mysqli_query($conn, $sql);
+  }else {
+    ?> <a href='?a=<?php echo $prod['prod_id'] . $prod['prod_title']; ?>'><?php
+    echo $prod['prod_title'] . "<br>";
+    ?> </a> <?php
+    echo "Auction ends: " . $prod['end_time'] . "<br>";
+    echo "Highest bid is currently at: " . $prod['min_price'] . "<br><br>";
+  }
+}
