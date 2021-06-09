@@ -85,6 +85,33 @@ function getAuctions(){
 return $auctions;
 }
 
+function getCatAmm($cid){
+  global $conn;
+  $sql = "SELECT cat_id FROM products where active = 1 AND cat_id = '$cid'";
+  $result = mysqli_query($conn, $sql);
+  $auctions =[];
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+      $cats[] = $row;
+    }
+  }
+return $cats;
+}
+
+function getAuctionsWithCat($cat){
+  global $conn;
+  $sql = "SELECT * FROM products where active = 1 AND cat_id = '$cat'";
+  $result = mysqli_query($conn, $sql);
+  $auctions =[];
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+      $auctions[] = $row;
+    }
+  }
+return $auctions;
+}
+
+
 function searchAuction($search){
   global $conn;
   $sql = "SELECT * FROM products_with_cats where active = 1 AND prod_title LIKE '$search'";

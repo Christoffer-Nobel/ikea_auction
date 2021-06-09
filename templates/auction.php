@@ -1,11 +1,33 @@
 <form method="post">
+  <select default="Category" name="cat">
+     <option value="" selected data-default>Categories</option>
+    <?php
+    foreach (getCats() as $cat) {
+      $antal = count(getCatAmm($cat['cat_id']));
+      ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title'];?> ( <?php echo $antal;?> )</option>
+    <?php } ?>
+  </select>
+  <button type="submit" name="catSubmit">Show products in category</button>
+</form>
+<br>
+
+
+<form method="post">
 <input type="search" name="searchbar" placeholder="Find an auction">
 <button type="submit" name="search">Search</button>
 </form>
 
 <?php
-
-if(isset($_POST['search'])){
+if(isset($_POST['catSubmit'])){
+  $cat = $_POST['cat'];
+  $auctions = getAuctionsWithCat($cat);
+  foreach ($auctions as $auction) {
+    ?> <a href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'><?php
+    echo $auction['prod_title'] . "<br>";
+    ?> </a> <?php
+    echo "Ends: " . $auction['end_time'] . "<br>";
+  }
+}elseif(isset($_POST['search'])){
  $search = "%" . $_POST['searchbar'] . "%";
  $auctions = searchAuction($search);
  if($auctions == NULL){
