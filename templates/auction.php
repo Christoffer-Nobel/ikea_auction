@@ -22,7 +22,7 @@ if(isset($_POST['search'])){
  }
 }else{
   $auctions = getAuctions();
-  $time = date("20y-m-d H:m:s");
+    $time = date("20y-m-d H:m:s");
   foreach ($auctions as $auction) {
     $id = $auction['prod_id'];
     if($time > $auction['end_time']){

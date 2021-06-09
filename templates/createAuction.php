@@ -13,7 +13,7 @@
   <input type="submit" name="submit">
 </form>
 
-<?
+<?php
 if(isset($_SESSION['user_id']) && isset($_POST['submit'])){
   $title = $_POST['title'];
   $cat = $_POST['cat'];

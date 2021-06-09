@@ -113,6 +113,19 @@ function getProd($i) {
   return $product;
 }
 
+function getMaxBid($uid){
+global $conn;
+$sql = "SELECT MAX(bid_ammount) AS bid_ammount FROM bids WHERE bidder_id = '$uid' GROUP BY prod_id;";
+$result = mysqli_query($conn, $sql);
+$bids =[];
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
+    $bids[] = $row;
+  }
+}
+return $bids;
+}
+
 
 function debug($data) {
   echo '<pre>';

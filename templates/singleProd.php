@@ -1,4 +1,4 @@
-<?
+<?php
 $prodId = $_GET['a'];
 $product = getProd($prodId);
 

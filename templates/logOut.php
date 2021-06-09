@@ -3,7 +3,7 @@
   <button type="submit" name="logOut">Log out</button>
 </form>
 
-<?
+<?php
 if(isset($_POST['logOut'])){
   session_destroy();
   header('location: index.php');
