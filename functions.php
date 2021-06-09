@@ -74,7 +74,7 @@ function getCats() {
 
 function getAuctions(){
   global $conn;
-  $sql = 'SELECT * FROM products where active = 1';
+  $sql = 'SELECT * FROM products_with_cats where active = 1';
   $result = mysqli_query($conn, $sql);
   $auctions =[];
   if(mysqli_num_rows($result) > 0){
@@ -87,7 +87,7 @@ return $auctions;
 
 function searchAuction($search){
   global $conn;
-  $sql = "SELECT * FROM products where active = 1 AND prod_title LIKE '$search'";
+  $sql = "SELECT * FROM products_with_cats where active = 1 AND prod_title LIKE '$search'";
   $result = mysqli_query($conn, $sql);
   $auctions =[];
   if(mysqli_num_rows($result) > 0){

@@ -5,7 +5,6 @@
 
 <?php
 
-
 if(isset($_POST['search'])){
  $search = "%" . $_POST['searchbar'] . "%";
  $auctions = searchAuction($search);
@@ -17,7 +16,8 @@ if(isset($_POST['search'])){
      ?> <a href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'><?php
      echo $auction['prod_title'] . "<br>";
      ?> </a> <?php
-     echo $auction['end_time'] . "<br>";
+     echo "Category: " . $auction['cat_title'] . "<br>";
+     echo "Ends: " . $auction['end_time'] . "<br>";
    }
  }
 }else{
@@ -32,7 +32,8 @@ if(isset($_POST['search'])){
       ?> <a href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'><?php
       echo $auction['prod_title'] . "<br>";
       ?> </a> <?php
-      echo $auction['end_time'] . "<br>";
+      echo "Category: " . $auction['cat_title'] . "<br>";
+      echo "Ends: " . $auction['end_time'] . "<br>";
     }
   }
 }
