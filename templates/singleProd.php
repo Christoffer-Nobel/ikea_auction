@@ -3,6 +3,7 @@ $prodId = $_GET['a'];
 $product = getProd($prodId);
 ?><div id="single_prod_div"> <?php
   echo "<h3>" . $product[0]['prod_title'] . "</h3>";
+  echo "<b>Category:</b> " . $product[0]['cat_title'] . "<br><br>";
   echo "<b>Description:</b> " . $product[0]['description'] . "<br><br>";
   echo "<b>Highest bid:</b> " . $product[0]['min_price'] . "<br><br>";
   echo "<b>Ends:</b> " . $product[0]['end_time'] . "<br><br>";

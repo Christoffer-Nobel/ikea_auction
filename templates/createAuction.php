@@ -26,6 +26,8 @@ if(isset($_SESSION['user_id']) && isset($_POST['submit'])){
 
   $result = mysqli_query($conn, $sql);
   echo "Your auction has been published";
-} elseif(isset($_SESSION['submit'])){
+} elseif(isset($_POST['submit'])){
   echo "Something went wrong, please try again";
+} elseif(!isset($_SESSION['user_id'])){
+  echo "Please login to create an auction";
 }

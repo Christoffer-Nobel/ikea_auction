@@ -128,7 +128,7 @@ return $auctions;
 function getProd($i) {
   global $conn;
 
-  $sql = 'SELECT * FROM products WHERE prod_id = "'. $i . '"';
+  $sql = 'SELECT * FROM products_with_cats WHERE prod_id = "'. $i . '"';
   $result = mysqli_query($conn, $sql);
   $product = [];
 

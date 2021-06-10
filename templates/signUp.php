@@ -22,7 +22,9 @@ if(isset($_POST['submit']) && $_POST['password'] == $_POST['repeatPassword']){
 
   $sql = "INSERT INTO users (first_name, last_name, email, password, address, postal) VALUES ('$fName', '$lName', '$email', '$hashedPass', '$address', '$postal');";
   $result = mysqli_query($conn, $sql);
-  echo "user has been created";
+  echo "User has been created";
+} elseif(isset($_POST['submit']) && $_POST['password'] != $_POST['repeatPassword']){
+  echo "Password and repeated password has to be the same, please try again";
 } elseif(isset($_POST['submit'])){
-  echo "something went wrong";
+  echo "Something went wrong, please try again";
 }

@@ -42,11 +42,13 @@ if(isset($_POST['catSubmit'])){
  }else{
    echo "This is what we found for your search of '" . $_POST['searchbar'] . "'<br>";
    foreach ($auctions as $auction) {
-     ?>     <a class="auction_a" href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'><div class="auction"><?php
-     echo $auction['prod_title'] . "<br>";
-     echo "Category: " . $auction['cat_title'] . "<br>";
-     echo "Ends: " . $auction['end_time'] . "<br>";
-    ?> </div> </a> <?php
+     ?> <a class="auction_a" href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'>
+       <div class="auction"><?php
+         echo $auction['prod_title'] . "<br>";
+         echo "Category: " . $auction['cat_title'] . "<br>";
+         echo "Ends: " . $auction['end_time'] . "<br>";
+        ?> </div>
+      </a> <?php
    }
  }
 }else{
@@ -58,11 +60,13 @@ if(isset($_POST['catSubmit'])){
       $sql = "UPDATE products SET  active = 0 WHERE prod_id = $id;";
       $result = mysqli_query($conn, $sql);
     }else {
-      ?> <a class="auction_a" href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'><div class="auction"><?php
-      echo $auction['prod_title'] . "<br>";
-      echo "Category: " . $auction['cat_title'] . "<br>";
-      echo "Ends: " . $auction['end_time'] . "<br>";
-      ?> </div></a> <?php
+      ?> <a class="auction_a" href='?a=<?php echo $auction['prod_id'] . $auction['prod_title']; ?>'>
+        <div class="auction"><?php
+          echo $auction['prod_title'] . "<br>";
+          echo "Category: " . $auction['cat_title'] . "<br>";
+          echo "Ends: " . $auction['end_time'] . "<br>";
+        ?> </div>
+      </a> <?php
     }
   }
 }
