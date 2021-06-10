@@ -1,0 +1,108 @@
+.welcome{
+  font-size: 30px;
+}
+
+.nav{
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a.nav:hover{
+    color: black;
+    background: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.auction{
+  border-radius: 10px;
+  border-width: thin;
+  border-style: inset;
+  border-color: grey;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.auction:hover{
+  background:  #0058AB;
+  color:  #FCDA0C;
+  border-radius: 10px;
+  border-width: thin;
+  border-style: inset;
+  border-color: grey;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.auction_a{
+  text-decoration: none;
+  color: black;
+
+}
+
+#header_div {
+  background: #0058AB;
+  display: flex;
+  height: 100px;
+}
+
+
+#header_menu {
+  font-size: 20px;
+  order: 1;
+  padding-top: 35px;
+  text-decoration: none;
+}
+
+#header_Create\ auction {
+  font-size: 20px;
+  order: 2;
+  padding-top: 35px;
+  text-decoration: none;
+}
+
+#header_Sign\ up {
+  font-size: 20px;
+  order: 6;
+  padding-top: 35px;
+  text-decoration: none;
+}
+
+#empty_div1{
+  padding-left: 90px;
+  order: 3;
+}
+
+#empty_div2{
+  padding-left: 1100px;
+  order: 4;
+}
+
+#header_Login {
+  font-size: 20px;
+  order: 5;
+  padding-top: 35px;
+  text-decoration: none;
+}
+
+#header_mypage {
+  font-size: 20px;
+  order: 3;
+  padding-top: 35px;
+  text-decoration: none;
+}
+
+#header_Log\ out {
+  font-size: 20px;
+  float: right;
+  order: 7;
+  padding-top: 35px;
+  text-decoration: none;
+}
