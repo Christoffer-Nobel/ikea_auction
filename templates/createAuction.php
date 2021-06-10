@@ -1,16 +1,16 @@
-
-<form method="post" name="newAuction">
-  <input type="text" name="title" placeholder="Title" required>
-  <select name="cat" required>
+<p class='welcome'>Please enter your product information here to create your auction<p>
+<form id="form" method="post" name="newAuction">
+  <input class="create_auction" type="text" name="title" placeholder="Title" required>
+  <select class="create_auction" name="cat" required>
     <?php
     foreach (getCats() as $cat) {
       ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title']; ?></option>
     <?php } ?>
   </select>
-  <input type="text" name="description" placeholder="Product description" required>
-  <input type="number" name="min_price" placeholder="Minimum price" required>
-  <input type="datetime-local" name="end_time" placeholder="Auction end time" required>
-  <input type="submit" name="submit">
+  <input class="create_auction" type="text" name="description" placeholder="Product description" required>
+  <input class="create_auction" type="number" name="min_price" placeholder="Minimum price" required>
+  <input class="create_auction" type="datetime-local" name="end_time" placeholder="Auction end time" required>
+  <input class="create_auction" type="submit" name="submit">
 </form>
 
 <?php

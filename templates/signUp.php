@@ -1,12 +1,13 @@
+<p class="welcome">Enter your details to create an account<p>
 <form method="post">
-  <input type="text" name="firstName" required placeholder="Firstname">
-  <input type="text" name="lastName" required placeholder="Lastname">
-  <input type="email" name="email" required placeholder="Email">
-  <input type="password" name="password" required placeholder="Password">
-  <input type="password" name="repeatPassword" required placeholder="Repeat password">
-  <input type="text" name="address" required placeholder="address">
-  <input type="postal" name="postal" required placeholder="postal">
-  <input type="submit" name="submit">
+  <input class="create_auction" type="text" name="firstName" required placeholder="First name">
+  <input class="create_auction" type="text" name="lastName" required placeholder="Last name">
+  <input class="create_auction" type="email" name="email" required placeholder="Email">
+  <input class="create_auction" type="password" name="password" required placeholder="Password">
+  <input class="create_auction" type="password" name="repeatPassword" required placeholder="Repeat password">
+  <input class="create_auction" type="text" name="address" required placeholder="Address">
+  <input class="create_auction" type="postal" name="postal" required placeholder="Postal">
+  <input class="create_auction" type="submit" name="submit">
 </form>
 
 <?php

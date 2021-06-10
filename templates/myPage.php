@@ -1,5 +1,5 @@
 <?php
-  echo "Welcome to your page " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . ". Here you can view your open auctions, and bids you have recently placed or won";
+  ?> <p class="welcome"> <?php echo "Welcome to your page " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . ". Here you can view your open auctions, and bids you have recently placed or won <p>";
 
 echo "<h2>Your active bids:</h2>";
 
@@ -24,15 +24,15 @@ foreach ($bids as $bid) {
         $sql = "UPDATE products SET  active = 0 WHERE prod_id = $id;";
         $result = mysqli_query($conn, $sql);
       }else {
-        ?> <a href='?a=<?php echo $prod['prod_id'] . $prod['prod_title']; ?>'><?php
+        ?> <a class="auction_a" href='?a=<?php echo $prod['prod_id'] . $prod['prod_title']; ?>'><div class="auction"><?php
         echo $prod['prod_title'] . "<br>";
-        ?> </a> <?php
-        echo "Auction ends: " . $prod['end_time'] . "<br>";
+        echo "Auction ends: " . $prod['end_time'] . "<br><br>";
         if($bidAmm == $prod['min_price']){
-          echo "Your bid is currently the highest at kr. " . $bidAmm . "<br><br>";
+          echo "Your bid is currently the highest at kr. " . $bidAmm . "<br>";
         }elseif($bidAmm < $prod['min_price']){
-          echo "You have been out-bid. The current price is kr. " . $prod['min_price'] . "<br><br>";
+          echo "You have been out-bid. The current price is kr. " . $prod['min_price'] . "<br>";
         }
+        ?> </div></a> <?php
       }
     }
 }
@@ -53,11 +53,11 @@ foreach ($prods as $prod){
     $sql = "UPDATE products SET  active = 0 WHERE prod_id = $id;";
     $result = mysqli_query($conn, $sql);
   }else {
-    ?> <a href='?a=<?php echo $prod['prod_id'] . $prod['prod_title']; ?>'><?php
+    ?> <a class="auction_a" href='?a=<?php echo $prod['prod_id'] . $prod['prod_title']; ?>'><div class="auction"><?php
     echo $prod['prod_title'] . "<br>";
-    ?> </a> <?php
     echo "Auction ends: " . $prod['end_time'] . "<br>";
-    echo "Highest bid is currently at: " . $prod['min_price'] . "<br><br>";
+    echo "Highest bid is currently at: " . $prod['min_price'] . "<br>";
+    ?> </div></a> <?php
   }
 }
 echo "<h2>Your auction wins: </h2>";
@@ -71,9 +71,11 @@ if(mysqli_num_rows($result) > 0){
   }
 }
 foreach ($prods as $prod){
+  ?> <div class="ended_auction"> <?php
   echo $prod['prod_title'] . "<br>";
   echo "Final price: " . $prod['bid_ammount'] . "<br>";
   echo "Seller contact info: " . $prod['email'] . "<br><br>";
+  ?> </div> <?php
 }
 
 echo "<h2>Your ended auctions: </h2>";
@@ -87,7 +89,9 @@ if(mysqli_num_rows($result) > 0){
   }
 }
 foreach ($prods as $prod){
+  ?> <div class="ended_auction"> <?php
   echo $prod['prod_title'] . "<br>";
   echo "Final price: " . $prod['bid_ammount'] . "<br>";
   echo "Buyer contact info: " . $prod['email'] . "<br><br>";
+  ?> </div> <?php
 }

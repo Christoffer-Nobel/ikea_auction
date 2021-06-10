@@ -1,19 +1,19 @@
 <?php
 $prodId = $_GET['a'];
 $product = getProd($prodId);
+?><div id="single_prod_div"> <?php
+  echo "<h3>" . $product[0]['prod_title'] . "</h3>";
+  echo "<b>Description:</b> " . $product[0]['description'] . "<br><br>";
+  echo "<b>Highest bid:</b> " . $product[0]['min_price'] . "<br><br>";
+  echo "<b>Ends:</b> " . $product[0]['end_time'] . "<br><br>";
 
-echo $product[0]['prod_title'] . "<br>";
-echo "Description: " . $product[0]['description'] . "<br>";
-echo "Highest bid: " . $product[0]['min_price'] . "<br>";
-echo "Ends: " . $product[0]['end_time'] . "<br>";
-
-
-?> <h2>Enter bid<h2>
+  ?>
+<h2>Enter bid<h2>
 <form method="post" name="newBid">
-  <input type="number" name="bid">
-  <button type="submit" name="submit">Place</button>
+  <input class="create_auction" type="number" name="bid">
+  <button class="create_auction" type="submit" name="submit">Place bid</button>
 </form>
-
+</div>
 <?php
 $time = date("20y-m-d H:m:s");
 if(isset($_SESSION['user_id'])){

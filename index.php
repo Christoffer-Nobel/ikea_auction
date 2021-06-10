@@ -14,7 +14,7 @@ if(isset($_GET['a'])){
   include('templates/' . $page[0]['template']);
 }elseif(isset($_SESSION['user_id'])){
   $page = getPage(3);
-  ?><p class='welcome'><?php echo "Hi there " . $_SESSION['first_name'] . ", Thank you for helping us in the quest to limit waste! Here are all the active auctions:"; ?> </p> <?php
+  ?><p class='welcome'><?php echo "Hi there " . $_SESSION['first_name'] . ", Thank you for helping us in the quest to limit waste! <br> Here are all the active auctions:"; ?> </p> <?php
   include('templates/' . $page[0]['template']);
 }else{
   $page = getPage(3);

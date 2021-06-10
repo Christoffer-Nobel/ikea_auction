@@ -1,25 +1,28 @@
-<form method="post">
-  <select default="Category" name="cat">
-     <option value="" selected data-default>Categories</option>
-    <?php
-    foreach (getCats() as $cat) {
-      $catAmm = getCatAmm($cat['cat_id']);
-      $i = 0;
-        foreach ($catAmm as $num) {
-          $i++;
-        }
-     ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title'];?> ( <?php echo $i;?> )</option>
-    <?php } ?>
-  </select>
-  <button type="submit" name="catSubmit">Show products in category</button>
-</form>
-<br>
-
-
-<form method="post">
-<input type="search" name="searchbar" placeholder="Find an auction">
-<button type="submit" name="search">Search</button>
-</form>
+<div id="form_div">
+  <div id="cat_div">
+    <form method="post">
+      <select id="cat_select" default="Category" name="cat">
+         <option value="" selected data-default>Categories</option>
+        <?php
+        foreach (getCats() as $cat) {
+          $catAmm = getCatAmm($cat['cat_id']);
+          $i = 0;
+            foreach ($catAmm as $num) {
+              $i++;
+            }
+         ?><option name="cat" value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_title'];?> ( <?php echo $i;?> )</option>
+        <?php } ?>
+      </select>
+      <button id="cat_button" type="submit" name="catSubmit">Show products in category</button>
+    </form>
+  </div>
+  <div id="search_div">
+    <form method="post">
+    <input id="search_input" type="search" name="searchbar" placeholder="Find an auction">
+    <button id="search_button" type="submit" name="search">Search</button>
+    </form>
+  </div>
+</div>
 
 <?php
 if(isset($_POST['catSubmit'])){
